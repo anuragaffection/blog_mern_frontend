@@ -13,7 +13,7 @@ const logo = ` text-xl text-yellow-400 font-semibold`;
 const logoImg = 'rounded-full'
 const logoWrapper = `flex justify-center items-center gap-2 ml-4 mt-2 md:mt-0`
 const nav = `flex justify-center items-center list-none gap-4 md:gap-8 mr-0 md:mr-4 xl:mr-8 mb-2 md:mb-0 mt-2 md:mt-0`;
-const navLink = `hover:text-yellow-400 md:text-xl text-md`;
+const navLink = `hover:text-yellow-400 md:text-xl text-lg`;
 
 function Navbar() {
     const auth = useContext(context);
