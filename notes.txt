@@ -34,3 +34,13 @@ anchor tag vs Link tag {
 Link vs Route in react js {
     -- 
 }
+
+
+
+code cutted {
+                  <input
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                type="text" className={inputStyle} id="exampleInputEmail1"
+              />
+}
