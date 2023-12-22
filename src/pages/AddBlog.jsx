@@ -169,12 +169,14 @@ function AddBlog() {
 
         <div className={wrapper}>
 
-          {
-            (auth.id) ? (
-              <h1 className={titleStyle}>Edit Blog</h1>) : (
-              <h1 className={titleStyle}>Add Blog</h1>
-            )
-          }
+          <div>
+            {
+              (auth.id) ? (
+                <h1 className={titleStyle}>Edit Blog</h1>) : (
+                <h1 className={titleStyle}>Add Blog</h1>
+              )
+            }
+          </div>
 
           <form onSubmit={handleSubmit} className={addBlogForm}>
 
