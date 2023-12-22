@@ -140,6 +140,16 @@ function AddBlog() {
   }
 
 
+  const container = `bg-gray-900 text-gray-200 p-4`;
+  const wrapper = `flex flex-col gap-7 md:justify-center md:items-center my-3`;
+  const titleStyle = `text-center text-yellow-400 text-2xl font-semibold`;
+  const addBlogForm = `flex flex-col gap-6 bg-gray-950 p-9 rounded-lg md:w-3/4`;
+  const labelInputWrapper = 'flex flex-col gap-2'
+  const labelStyle = 'font-semibold ml-2'
+  const inputStyle = `bg-gray-700 h-12 p-3 rounded-lg`;
+  const addBlogButton = `text-gray-900 h-12 rounded-lg bg-lime-500 hover:bg-lime-400`
+
+
   return (
     <>
       <ToastContainer
@@ -155,56 +165,64 @@ function AddBlog() {
         theme="dark"
       />
 
-      <div className="container" style={{ width: '45%' }}>
+      <div className={container}>
 
-        {
-          (auth.id) ? (
-            <h1 className='text-center my-3'>Edit Blog</h1>) : (
-            <h1 className='text-center my-3'>Add Blog</h1>
-          )
-        }
+        <div className={wrapper}>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3 my-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              type="text" className="form-control" id="exampletext" aria-describedby="emailHelp"
-            />
+          {
+            (auth.id) ? (
+              <h1 className={titleStyle}>Edit Blog</h1>) : (
+              <h1 className={titleStyle}>Add Blog</h1>
+            )
+          }
 
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
-            <input
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            />
+          <form onSubmit={handleSubmit} className={addBlogForm}>
 
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">imgUrl</label>
-            <input
-              value={imgUrl}
-              onChange={(e) => setImgUrl(e.target.value)}
-              type="text" className="form-control" id="exampleInputPassword1"
-            />
-          </div>
 
-          <div className="d-grid gap-2 my-5">
-            {
-              (auth.id) ? (
-                <button type="submit" className="btn btn-primary">Edit Blog</button>
+            <div className="mb-3 my-3">
+              <label htmlFor="exampleInputEmail1" className={labelStyle}>Title</label>
+              <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                type="text" className={inputStyle} id="exampletext"
+              />
+            </div>
 
-              ) : (
-                <button type="submit" className="btn btn-primary">Add Blog</button>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className={labelStyle}>Description</label>
+              <input
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                type="text" className={inputStyle} id="exampleInputEmail1"
+              />
+            </div>
 
-              )
-            }
-          </div>
-          
-        </form>
+            <div className="mb-3">
+              <label htmlFor="exampleInputPassword1" className={labelStyle}>imgUrl</label>
+              <input
+                value={imgUrl}
+                onChange={(e) => setImgUrl(e.target.value)}
+                type="text" className={inputStyle} id="exampleInputPassword1"
+              />
+            </div>
+
+            <div className={labelInputWrapper}>
+              {
+                (auth.id) ? (
+                  <button type="submit" className={addBlogButton}>Edit Blog</button>
+
+                ) : (
+                  <button type="submit" className={addBlogButton}>Add Blog</button>
+
+                )
+              }
+            </div>
+
+
+          </form>
+
+        </div>
+
       </div>
     </>
   )
