@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
 
       <h3 className="text-xl font-semibold mb-2">Changes to Privacy Policy</h3>
       <p className="mb-4">{privacy.changesToPrivacyPolicy}</p>
-      
+
     </div>
   );
 };
