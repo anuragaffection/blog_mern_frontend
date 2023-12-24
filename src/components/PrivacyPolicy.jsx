@@ -4,7 +4,7 @@ import { privacy } from '../constant/privacy';
 const PrivacyPolicy = () => {
   const container = `bg-gray-900 text-gray-200 p-4 `;
   const wrapper = `bg-gray-950 py-4 px-6 m-1 rounded-md`
-  const subHeading = `text-2xl mb-4 text-yellow-400`;
+  const subHeading = `text-xl mb-4 text-yellow-400`;
   const paragraphStyle = `mb-4`;
 
   return (
