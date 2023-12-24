@@ -31,7 +31,6 @@ function MyBlogs() {
 
 
     const deleteBlog = async (id) => {
-
         const api = await axios.get(`https://blog-mern-backend-luce.onrender.com/api/blogs/${id}`, {
             headers: {
                 "Content-Type": "application/json"
@@ -54,7 +53,7 @@ function MyBlogs() {
 
     const editBlog = async (id) => {
         auth.setId(id);
-        navigate('./addblog')
+        navigate('/addblog')
     }
 
     const container = `bg-gray-900 text-gray-200 p-4`;

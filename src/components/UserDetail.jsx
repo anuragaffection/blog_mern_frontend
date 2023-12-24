@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-
-
 const UserDetail = ({id}) => {
-
     const [user, setUser] = useState({})
     useEffect(() => {
         const fetchUser = async () => {
@@ -23,7 +20,6 @@ const UserDetail = ({id}) => {
     return (
         <>
             <h3> {user.name}</h3>
-           
         </>
     )
 }

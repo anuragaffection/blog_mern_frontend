@@ -9,7 +9,6 @@ const Profile = () => {
   const auth = useContext(context)
 
   useEffect(() => {
-
     const fetchUser = async () => {
       const api = await axios.get(`https://blog-mern-backend-luce.onrender.com/api/users/getmyprofile`, {
         headers: {
