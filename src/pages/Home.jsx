@@ -57,7 +57,7 @@ const Home = () => {
                     </div>
 
                     <div> {data.description.substring(0, 250)} </div>
-                    <div className={readMoreStyle}>Read More & More </div>
+                    <div className={readMoreStyle}> Read More & More</div>
 
                   </div>
               )
