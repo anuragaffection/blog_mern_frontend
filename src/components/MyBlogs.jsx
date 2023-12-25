@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import UserDetail from './UserDetail'
-import context from '../context/AuthContext';
+import context from '../context/MyContext';
 import articleApp from '../assets/articleApp.jpg'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';

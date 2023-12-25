@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import ArticleApp from '../assets/articleApp.jpg'
-import context from '../context/AuthContext'
+import context from '../context/MyContext'
 import { Social } from '../constant/social'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';

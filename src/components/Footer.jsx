@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import AboutApp from './AboutApp';
 import Contact from './Contact'
 import PrivacyPolicy from './PrivacyPolicy';
@@ -7,12 +8,15 @@ import { Social } from '../constant/social';
 import { FaYoutube, FaTwitter, FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa'
 
 function Footer() {
+  const navigate = useNavigate();
+
   const [showAboutApp, setShowAboutApp] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
   const [showaboutDeveloper, setShowAboutDeveloper] = useState(false);
 
   const scrollToTop = () => {
+    navigate('/');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
