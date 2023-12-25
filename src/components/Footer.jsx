@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AboutApp from './AboutApp';
 import Contact from './Contact'
 import PrivacyPolicy from './PrivacyPolicy';
-import AboutDevloper from './AboutDevloper';
+import AboutDevloper from './AboutDeveloper';
 import { Social } from '../constant/social';
 import { FaYoutube, FaTwitter, FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa'
 
@@ -10,14 +10,25 @@ function Footer() {
   const [showAboutApp, setShowAboutApp] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
-  const [showAboutDevloper, setShowAboutDeveloper] = useState(false);
+  const [showaboutDeveloper, setShowAboutDeveloper] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setShowAboutApp(false);
+    setShowContact(false);
+    setShowPolicy(false);
+    setShowAboutDeveloper(false);
+  };
 
   const toggleAbout = () => {
     setShowAboutApp(!showAboutApp);
     setShowContact(false);
     setShowPolicy(false);
     setShowAboutDeveloper(false);
-    
+
   }
   const toggleContact = () => {
     setShowAboutApp(false);
@@ -38,7 +49,7 @@ function Footer() {
     setShowAboutApp(false);
     setShowContact(false);
     setShowPolicy(false);
-    setShowAboutDeveloper(!showAboutDevloper)
+    setShowAboutDeveloper(!showaboutDeveloper)
   }
 
   const footerContainer = `bg-black text-lime-500`;
@@ -56,7 +67,7 @@ function Footer() {
         <div className={footerWrapper}>
           <div className={name}> {Social.name}</div>
           <div className={nav}>
-            <div className={navLink}>Home</div>
+            <div className={navLink} onClick={scrollToTop}>Home</div>
             <div className={navLink} onClick={toggleAbout}>About </div>
             <div className={navLink} onClick={toggleContact}>Contact </div>
             <div className={navLink} onClick={togglePolicy}>Privacy </div>
@@ -66,10 +77,10 @@ function Footer() {
       </footer >
 
       <div>
-        {showAboutApp && <AboutApp/>}
+        {showAboutApp && <AboutApp />}
         {showContact && <Contact />}
         {showPolicy && <PrivacyPolicy />}
-        {showAboutDevloper && <AboutDevloper/>}
+        {showaboutDeveloper && <AboutDevloper />}
       </div>
 
       <div className={footerContainer}>

@@ -67,9 +67,6 @@ function MyBlogs() {
     const editButton = `bg-lime-500 hover:bg-lime-400 h-12 px-5 rounded-lg`;
     const deleteButton = 'bg-red-700 hover:bg-red-500 h-12 px-5 rounded-lg'
   
-
-
-
     return (
         <>
             <div className={container}>

@@ -6,6 +6,34 @@ npm run build
 
 
 
+problems {
+
+    fully clear 
+    -- aboutApp
+    -- aboutdeveloper
+    -- footer
+    -- 
+
+
+    contact.jsx 
+    -- need backend send message 
+    -- 
+
+    myblogs 
+    -- edit not working 
+    -- delete not working 
+    -- 
+
+
+}
+
+
+
+
+
+
+
+
 installation links {
     -- https://tailwindcss.com/docs/guides/vite
 }
