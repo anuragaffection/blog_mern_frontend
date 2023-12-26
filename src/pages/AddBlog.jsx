@@ -6,8 +6,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
 function AddBlog() {
 
   const auth = useContext(context);
@@ -27,9 +25,10 @@ function AddBlog() {
         withCredentials: true,
       });
 
-      setTitle(api.data.blog.title)
-      setDescription(api.data.blog.description)
-      setImgUrl(api.data.blog.imgUrl);
+      //console.log(api.data.data.title);
+      setTitle(api.data.data.title)
+      setDescription(api.data.data.description)
+      setImgUrl(api.data.data.imgUrl);
     }
 
     fetchBlog();
@@ -45,13 +44,12 @@ function AddBlog() {
           title,
           description,
           imgUrl
-        },
-          {
-            headers: {
-              "Content-Type": "application/json"
-            },
-            withCredentials: true,
-          });
+        }, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true,
+        });
 
         // console.log(api);
         toast.success(api.data.message, {
@@ -93,13 +91,12 @@ function AddBlog() {
           title,
           description,
           imgUrl
-        },
-          {
-            headers: {
-              "Content-Type": "application/json"
-            },
-            withCredentials: true,
-          });
+        }, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true,
+        });
 
         // console.log(api);
         toast.success(api.data.message, {
@@ -169,7 +166,8 @@ function AddBlog() {
           <div>
             {
               (auth.id) ? (
-                <h1 className={titleStyle}>Edit Blog</h1>) : (
+                <h1 className={titleStyle}>Update Blog</h1>
+              ) : (
                 <h1 className={titleStyle}>Add Blog</h1>
               )
             }
@@ -181,8 +179,8 @@ function AddBlog() {
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                type="text" 
-                className={inputStyle} 
+                type="text"
+                className={inputStyle}
                 id="titleText"
               />
             </div>
@@ -192,8 +190,8 @@ function AddBlog() {
               <input
                 value={imgUrl}
                 onChange={(e) => setImgUrl(e.target.value)}
-                type="text" 
-                className={inputStyle} 
+                type="text"
+                className={inputStyle}
                 id="imageUrl"
               />
             </div>
@@ -216,7 +214,7 @@ function AddBlog() {
             <div className={labelInputWrapper}>
               {
                 (auth.id) ? (
-                  <button type="submit" className={addBlogButton}>Edit Blog</button>
+                  <button type="submit" className={addBlogButton}>Update Blog</button>
 
                 ) : (
                   <button type="submit" className={addBlogButton}>Add Blog</button>
