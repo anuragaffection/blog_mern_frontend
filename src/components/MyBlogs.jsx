@@ -4,7 +4,7 @@ import axios from 'axios'
 import UserDetail from './UserDetail'
 import context from '../context/MyContext';
 import articleApp from '../assets/articleApp.jpg'
-import { ToastContainer, toast   } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -66,7 +66,7 @@ function MyBlogs() {
     const buttonWrapper = 'flex flex-row gap-6 justify-center text-gray-900 font-semibold'
     const editButton = `bg-lime-500 hover:bg-lime-400 h-12 px-5 rounded-lg`;
     const deleteButton = 'bg-red-700 hover:bg-red-500 h-12 px-5 rounded-lg'
-  
+
     return (
         <>
             <div className={container}>
@@ -104,7 +104,13 @@ function MyBlogs() {
                                         <div> <UserDetail id={data.user} /></div>
                                     </div>
 
-                                    <div> {data.description.substring(0, 250)} </div>
+                                    <div>
+                                        {
+                                            data.description.length > 250
+                                                ? `${data.description.substring(0, 251)}...`
+                                                : data.description
+                                        }
+                                    </div>
 
                                     <div className={buttonWrapper}>
                                         <button
