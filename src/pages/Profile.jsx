@@ -21,15 +21,11 @@ const Profile = () => {
         },
         withCredentials: true,
       });
-
       // console.log(api.data.user);
-      // setBlog(api.data.blogs)
       auth.setUser(api.data.user)
       auth.setIsAuthenticated(true);
     }
-
     fetchUser();
-
   }, [])
 
 
@@ -60,10 +56,14 @@ const Profile = () => {
   }
 
 
+  const container = `bg-gray-900 flex flex-col justify-center items-center`;
+  const wrapper = `flex flex-col gap-3 text-yellow-400 font-semibold m-4`;
+  const iconsStyle = `flex flex-row gap-2`;
+  const logoutStyle = `text-lime-500 hover:text-lime-300 text-lg font-semibold flex flex-row gap-2`;
+
+
   return (
-
     <>
-
       <ToastContainer
         position="top-right"
         autoClose={1500}
@@ -76,28 +76,18 @@ const Profile = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="bg-gray-900 flex flex-col justify-center items-center">
-        <div className=' flex flex-col gap-3 text-yellow-400 font-semibold m-4'>
-          <div className='flex flex-row gap-2'> <BiSolidUserCircle /> {" "} {auth.user.name}</div>
-          <div className='flex flex-row gap-2'> <MdEmail /> {" "} {auth.user.email}</div>
+
+      <div className={container}>
+        <div className={wrapper}>
+          <div className={iconsStyle}> <BiSolidUserCircle /> {" "} {auth.user.name}</div>
+          <div className={iconsStyle}> <MdEmail /> {" "} {auth.user.email}</div>
           {
             (auth.isAuthenticated) &&
-            <div
-              className="text-lime-500 hover:text-lime-300 md:text-xl text-lg font-semibold flex flex-row gap-2"
-              onClick={logout}> <BiLogOut/>
-              Logout
-            </div>
+            <div className={logoutStyle} onClick={logout}> <BiLogOut /> Logout </div>
           }
-
         </div>
-
-
-        <div>
-          <MyBlogs />
-        </div>
-
-      </div>
-
+        <div><MyBlogs /></div>
+      </div >
     </>
   )
 }

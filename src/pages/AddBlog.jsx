@@ -16,7 +16,6 @@ function AddBlog() {
   const [imgUrl, setImgUrl] = useState("");
 
   useEffect(() => {
-
     const fetchBlog = async () => {
       const api = await axios.get(`https://blog-mern-backend-luce.onrender.com/api/blogs/blog/${auth.id}`, {
         headers: {
@@ -33,7 +32,6 @@ function AddBlog() {
 
     fetchBlog();
   }, [auth.id])
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +65,7 @@ function AddBlog() {
 
         setTimeout(() => {
           navigate('/profile')
-        }, 1500);
+        }, 1000);
 
       } catch (error) {
         // console.error(error)
@@ -86,6 +84,9 @@ function AddBlog() {
       }
 
     } else {
+
+
+
       try {
         const api = await axios.put(`https://blog-mern-backend-luce.onrender.com/api/blogs/${auth.id}`, {
           title,
@@ -114,7 +115,7 @@ function AddBlog() {
 
         setTimeout(() => {
           navigate('/profile')
-        }, 1500);
+        }, 1000);
 
         auth.setId("");
 

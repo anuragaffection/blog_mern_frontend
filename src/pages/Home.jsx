@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import UserDetail from '../components/UserDetail';
 import articleApp from '../assets/articleApp.jpg'
+import context from '../context/MyContext';
 
 const Home = () => {
   const [blog, setBlog] = useState([]);
+  const accessingBlog = useContext(context);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -21,6 +24,13 @@ const Home = () => {
     fetchBlog();
   }, [])
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    
+  };
 
   const container = `bg-gray-900 text-gray-200 p-4`;
   const wrapper = `flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-7 `;
@@ -56,7 +66,6 @@ const Home = () => {
                     <div> <UserDetail id={data.user} /></div>
                   </div>
 
-
                   <div>
                     {
                       data.description.length > 250
@@ -64,14 +73,25 @@ const Home = () => {
                         : data.description
                     }
                   </div>
-                  <div className={readMoreStyle}> Read More & More</div>
+                  <div className={readMoreStyle}>
+                    <Link
+                      to={"/viewblog"}
+                      onClick={() => {
+                        accessingBlog.setSingleBlog(data);
+                        scrollToTop()
+                      }}
+                    >
+                      Read More & More
+                    </Link>
+                  </div>
+
 
                 </div>
               )
             })
           }
         </div>
-      </div>
+      </div >
     </>
   )
 }

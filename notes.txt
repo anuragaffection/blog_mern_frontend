@@ -5,45 +5,50 @@ npm run dev
 npm run build 
 
 
+problems i faced {
+  -- tailwind Class , whitespace-pre-wrap	= for description 
+  -- multiple context provider = we can not do that 
+  -- optimization in footer = by  using object inside useState
+}
+
+
+
 
 problems {
 
-    fully clear 
-    -- aboutApp
-    -- aboutdeveloper
-    -- footer
-    -- 
+  fully clear 
+  -- aboutApp
+  -- aboutdeveloper
+  -- footer
+  -- 
 
 
-    contact.jsx 
-    -- need backend send message 
-    -- 
-
-    myblogs 
-    -- edit not working 
-    -- delete not working 
-    -- 
-
+  Issue 
+  -- edit not working [solved]
+  -- delete not working [solved]
+  -- useHistory not working 
+  -- need backend send message 
 
 }
 
 
 
 
-{
-    https://blog-mern-backend-luce.onrender.com/api/users/login
+backend url {
+  -- https://blog-mern-backend-luce.onrender.com/api/users/login
 }
 
 
 
 installation links {
-    -- https://tailwindcss.com/docs/guides/vite
+  -- https://tailwindcss.com/docs/guides/vite
 }
 
 
 similar apps {
-    -- https://dev.to/
+  -- https://dev.to/
 }
+
 
 
 when to prefer anchor tag & link tag {
@@ -51,42 +56,30 @@ when to prefer anchor tag & link tag {
 }
 
 
-anchor tag vs Link tag {
-    -- by default anchor tag fully reload the page 
-    -- Link tag just reload the specific components 
 
-    -- <a> tag: Triggers a full page reload when clicked.
-    -- <Link> component: Handles navigation within the React application without a full page reload.
-    -- 
+
+anchor tag vs Link tag {
+  -- by default anchor tag fully reload the page 
+  -- Link tag just reload the specific components 
+
+  -- <a> tag: Triggers a full page reload when clicked.
+  -- <Link> component: Handles navigation within the React application without a full page reload.
+  -- 
 }
+
+
+
 
 
 Link vs Route in react js {
-    -- 
+    -- both are necessary to 
 }
 
 
 
-code cutted addblog {
-                  <input
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                type="text" className={inputStyle} id="exampleInputEmail1"
-              />
-}
-
-
-home {
-    style={{ width: '56%' }}
-    style={{ maxWidth: '760px' }}
-}
-
-
-userDetails {
-    import { BiSolidUserCircle } from 'react-icons/bi';
-import { MdEmail } from 'react-icons/md';
-
- <h3> {user.email}</h3>
+Why you can not use multiple context wrapper {
+  -- they will cancel out each other 
+  -- will create accesing problems
 }
 
 
@@ -94,171 +87,4 @@ import { MdEmail } from 'react-icons/md';
 
 
 
-  const toggleAbout = () => {
-    setShowAboutApp(!showAboutApp);
-    setShowContact(false);
-    setShowPolicy(false);
-    setShowAboutDeveloper(false);
 
-  }
-  const toggleContact = () => {
-    setShowAboutApp(false);
-    setShowContact(!showContact);
-    setShowPolicy(false);
-    setShowAboutDeveloper(false);
-
-  };
-
-  const togglePolicy = () => {
-    setShowAboutApp(false);
-    setShowContact(false);
-    setShowPolicy(!showPolicy);
-    setShowAboutDeveloper(false)
-  };
-
-  const toggleDevloper = () => {
-    setShowAboutApp(false);
-    setShowContact(false);
-    setShowPolicy(false);
-    setShowAboutDeveloper(!showaboutDeveloper)
-  }
-
-
-
-
-
-
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import AboutApp from './AboutApp';
-import Contact from './Contact'
-import PrivacyPolicy from './PrivacyPolicy';
-import AboutDeveloper from './AboutDeveloper';
-import { Social } from '../constant/social';
-import {
-  FaYoutube,
-  FaTwitter,
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook
-} from 'react-icons/fa'
-
-
-function Footer() {
-  const navigate = useNavigate();
-
-  const [showAboutApp, setShowAboutApp] = useState(false);
-  const [showContact, setShowContact] = useState(false);
-  const [showPolicy, setShowPolicy] = useState(false);
-  const [showaboutDeveloper, setShowAboutDeveloper] = useState(false);
-
-  const scrollToTop = () => {
-    navigate('/');
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    setShowAboutApp(false);
-    setShowContact(false);
-    setShowPolicy(false);
-    setShowAboutDeveloper(false);
-  };
-
-
-
-  const toggleAbout = () => {
-    setShowAboutApp(!showAboutApp);
-    setShowContact(false);
-    setShowPolicy(false);
-    setShowAboutDeveloper(false);
-
-  }
-  const toggleContact = () => {
-    setShowAboutApp(false);
-    setShowContact(!showContact);
-    setShowPolicy(false);
-    setShowAboutDeveloper(false);
-
-  };
-
-  const togglePolicy = () => {
-    setShowAboutApp(false);
-    setShowContact(false);
-    setShowPolicy(!showPolicy);
-    setShowAboutDeveloper(false)
-  };
-
-  const toggleDevloper = () => {
-    setShowAboutApp(false);
-    setShowContact(false);
-    setShowPolicy(false);
-    setShowAboutDeveloper(!showaboutDeveloper)
-  }
-
-
-  const footerContainer = `bg-black text-lime-500`;
-  const footerWrapper = `flex flex-col justify-center items-center gap-5 p-4`;
-  const name = `mt-5 md:mt-7 text-light text-yellow-400 text-center text-xl `;
-  const nav = `flex justify-center items-center`;
-  const navLink = `ml-3 md:mx-5 hover:text-lime-400 text:sm md:text-xl text-bold`;
-  const socialMediaWrapper = `flex justify-center items-center mt-3`;
-  const socialMediaIcon = `ml-4 md:mx-5 hover:text-lime-400 text-2xl`;
-  const copyright = `mb-5 text-light text-yellow-400 flex flex-col md:flex-row md:gap-3 justify-center items-center`;
-
-  return (
-    <>
-      <footer className={footerContainer}>
-        <div className={footerWrapper}>
-          <div className={name}> {Social.name}</div>
-          <div className={nav}>
-            <div className={navLink} onClick={scrollToTop}>Home</div>
-            <div className={navLink} onClick={toggleAbout}>About </div>
-            <div className={navLink} onClick={toggleContact}>Contact </div>
-            <div className={navLink} onClick={togglePolicy}>Privacy </div>
-            <div className={navLink} onClick={toggleDevloper}>Developer</div>
-          </div>
-        </div>
-      </footer >
-
-      <div>
-        {showAboutApp && <AboutApp />}
-        {showContact && <Contact />}
-        {showPolicy && <PrivacyPolicy />}
-        {showaboutDeveloper && <AboutDeveloper />}
-      </div>
-
-      <div className={footerContainer}>
-        <div className={footerWrapper}>
-          <div className={socialMediaWrapper}>
-            <a className={socialMediaIcon} href={Social.github} target='_blank'><FaGithub /></a>
-            <a className={socialMediaIcon} href={Social.linkedin} target='_blank'><FaLinkedin /></a>
-            <a className={socialMediaIcon} href={Social.youtube} target='_blank'><FaYoutube /></a>
-            <a className={socialMediaIcon} href={Social.twitter} target='_blank'><FaTwitter /></a>
-            <a className={socialMediaIcon} href={Social.facebook} target='_blank'><FaFacebook /></a>
-            <a className={socialMediaIcon} href={Social.instagram} target='_blank'><FaInstagram /></a>
-          </div>
-          <div className={copyright}>
-            <span>&copy; 2023 </span>
-            <span>All rights reserved.</span>
-            <span>A Family of Love & Affection. </span>
-          </div>
-        </div>
-      </div>
-    </>
-
-  )
-}
-
-export default Footer
-
-
-
-
-
-
-
-  const [showAboutApp, setShowAboutApp] = useState(false);
-  const [showContact, setShowContact] = useState(false);
-  const [showPolicy, setShowPolicy] = useState(false);
-  const [showaboutDeveloper, setShowAboutDeveloper] = useState(false);
