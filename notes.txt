@@ -5,10 +5,20 @@ npm run dev
 npm run build 
 
 
+important links {
+  -- https://tailwindcss.com/docs/guides/vite
+  -- https://dev.to/
+  -- https://blog-mern-backend-luce.onrender.com/api/users/login
+}
+
+
+
+
 problems i faced {
+  -- tailwind installation problems [using vite]
   -- tailwind Class , whitespace-pre-wrap	= for description 
   -- multiple context provider = we can not do that 
-  -- optimization in footer = by  using object inside useState
+  -- optimization in footer = by using object inside useState
 }
 
 
@@ -34,21 +44,6 @@ problems {
 
 
 
-backend url {
-  -- https://blog-mern-backend-luce.onrender.com/api/users/login
-}
-
-
-
-installation links {
-  -- https://tailwindcss.com/docs/guides/vite
-}
-
-
-similar apps {
-  -- https://dev.to/
-}
-
 
 
 when to prefer anchor tag & link tag {
@@ -69,11 +64,10 @@ anchor tag vs Link tag {
 
 
 
-
-
 Link vs Route in react js {
-    -- both are necessary to 
+    -- both are necessary & depend on each other
 }
+
 
 
 
@@ -86,5 +80,7 @@ Why you can not use multiple context wrapper {
 
 
 
-
-
+removded bootstrap link {
+  --  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  -- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+}
