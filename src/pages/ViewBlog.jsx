@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-import { useHistory} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import context from '../context/MyContext'
 import UserDetail from '../components/UserDetail';
 import articleApp from '../assets/articleApp.jpg'
 
 function ViewBlog() {
-  const history = useHistory();
   const accessingBlog = useContext(context);
 
   const container = `bg-gray-900 text-gray-200 p-4`;
@@ -18,9 +17,7 @@ function ViewBlog() {
   const descriptionStyle = 'whitespace-pre-wrap'
   const readMoreStyle = `text-lime-600 hover:text-lime-400`;
 
-  const previousPage = () => {
-    history.goBack(); // Navigate back to the previous page
-  };
+
 
   return (
     <div className={container}>
@@ -40,7 +37,7 @@ function ViewBlog() {
           </div>
           <div className={descriptionStyle}> {accessingBlog.singleBlog.description}</div>
           <div className={readMoreStyle}>
-            <button onClick={previousPage} > Go Back </button>
+            <Link to={"/"}>Back</Link>
           </div>
         </div>
       </div>
