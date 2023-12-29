@@ -1,4 +1,3 @@
-
 # Article App [ A MERN Blog Application]
 
 ## Description
@@ -18,11 +17,16 @@ The Article App allows users to publish their favorite articles. It aims to prov
 11. [Acknowledgments](#acknowledgments)
 
 ## Technologies Used
+### Frontend
+- Vite 
+- Npm 
+- HTML 
+- CSS 
+- Tailwind 
+- React.js 
+### Backned 
 - MongoDB
-- Express.js (Backend)
-- React.js (Frontend)
-- Tailwind CSS
-- Vite
+- Express.js 
 - Npm 
 
 ## Installation
