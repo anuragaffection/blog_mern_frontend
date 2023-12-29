@@ -74,22 +74,12 @@ Once the application is set up, users can sign up, log in, and publish their fav
         |-- Login.jsx 
         |-- Profile.jsx 
         |-- Register.jsx 
-
     |-- App.jsx 
     |-- index.css 
     |-- main.jsx 
-
 |-- index.html
 |-- package.json
 |-- package-lock.json
-
-|-- .eslintrc.cjs
-|-- .gitignore 
-|-- README.md
-|-- notes.txt 
-|-- postcss.config.js 
-|-- tailwind.config.js 
-|-- vite.config.js
 </pre>
 
 ### Backnend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
