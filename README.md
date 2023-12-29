@@ -4,7 +4,7 @@
 The Article App allows users to publish their favorite articles. It aims to provide a platform for sharing articles and engaging with a community of readers.
 
 ## Repo Details 
-This repository is consisting only frontend part and it is deployed on vercel.
+This repository is consisting only frontend part and it is deployed on vercel[Deployed Link](#https://blog-mern-frontend-anurag.vercel.app/).
 
 ## Table of Contents
 1. [Technologies Used](#technologies-used)
@@ -48,7 +48,7 @@ This repository is consisting only frontend part and it is deployed on vercel.
 3. Set up the Environmet Variables 
 4. Set up MongoDB and configure the database connection.
 5. Run `server.js` in the backend folder to start the backend server.
-6. More (#https://github.com/anuragaffection/blog_mern_backend)
+6. [Backend Code - Github](#https://github.com/anuragaffection/blog_mern_backend)
 
 
 ## Usage
