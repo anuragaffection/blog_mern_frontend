@@ -12,17 +12,12 @@ It aims to provide a platform for sharing articles and engaging with a community
 
 
 ## Table of Contents
-01. [Technologies Used](#technologies-used)
-02. [Installation ](#installation)
-03. [Usage](#usage)
-04. [Features](#features)
-05. [Folder Structure](#folder-structure)
-06. [Database Schema](#database-schema)
-07. [API Endpoints](#api-endpoints)
-08. [Live](#live)
-09. [Contributing](#contributing)
-10. [License](#license)
-11. [Acknowledgments](#acknowledgments)
+1. [Technologies Used](#technologies-used)
+2. [Installation ](#installation)
+3. [Features](#features)
+4. [Folder Structure](#folder-structure)
+5. [License](#license)
+6. [Acknowledgments](#acknowledgments)
 
 
 
@@ -57,11 +52,6 @@ It aims to provide a platform for sharing articles and engaging with a community
 5. Run `server.js` in the backend folder to start the backend server.
 
 
-
-## Usage
-Once the application is set up, users can sign up, log in, and publish their favorite articles. They can also browse articles published by other users.
-
-
 ## Features
 - User authentication (sign up, log in)
 - Article publishing
@@ -89,7 +79,6 @@ Once the application is set up, users can sign up, log in, and publish their fav
 |-- package.json
 |-- package-lock.json
 </pre>
-
 ### Backnend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
 <pre>
 |-- controllers
@@ -102,20 +91,10 @@ Once the application is set up, users can sign up, log in, and publish their fav
 |-- package-lock.json
 </pre>
 
-## Database Schema
-[Link to Database Schema Documentation]
-
-## API Endpoints
-[Link to Postman Documentation]
-
-## Live 
-[ Live demo](https://blog-mern-frontend-anurag.vercel.app/)
-
-## Contributing
-We welcome contributions! Please follow our [Contribution Guidelines](CONTRIBUTING.md) to contribute to this project.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
+
 
 ## Acknowledgments
 ### Resources Used 
