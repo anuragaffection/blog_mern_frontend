@@ -1,12 +1,15 @@
 # Article App [ A MERN Blog Application]
 
+
 ## Description
 The Article App allows users to publish their favorite articles. 
 It aims to provide a platform for sharing articles and engaging with a community of readers.
 
+
 ## Repo Details 
 - This repository is consisting only frontend part and it is deployed on vercel [Live Link](https://blog-mern-frontend-anurag.vercel.app/).
 - For backend part  [View Github Repo](https://github.com/anuragaffection/blog_mern_backend).
+
 
 ## Table of Contents
 1. [Technologies Used](#technologies-used)
@@ -20,6 +23,7 @@ It aims to provide a platform for sharing articles and engaging with a community
 9. [Contributing](#contributing)
 10. [License](#license)
 11. [Acknowledgments](#acknowledgments)
+
 
 
 ## Technologies Used
@@ -39,6 +43,7 @@ It aims to provide a platform for sharing articles and engaging with a community
 - Npm 
 
 
+
 ## Installation
 ### Frontend 
 1. Clone the repository.
@@ -52,13 +57,16 @@ It aims to provide a platform for sharing articles and engaging with a community
 5. Run `server.js` in the backend folder to start the backend server.
 
 
+
 ## Usage
 Once the application is set up, users can sign up, log in, and publish their favorite articles. They can also browse articles published by other users.
+
 
 ## Features
 - User authentication (sign up, log in)
 - Article publishing
 - Article browsing
+
 
 ## Folder Structure
 ### Frontend 
@@ -83,7 +91,16 @@ Once the application is set up, users can sign up, log in, and publish their fav
 </pre>
 
 ### Backnend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
-
+<pre>
+|-- controllers
+|-- middleware 
+|-- models 
+|-- routes 
+|-- utils
+|-- server.js
+|-- package.json
+|-- package-lock.json
+</pre>
 
 ## Database Schema
 [Link to Database Schema Documentation]
