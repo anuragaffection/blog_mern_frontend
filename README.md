@@ -3,9 +3,12 @@
 ## Description
 The Article App allows users to publish their favorite articles. It aims to provide a platform for sharing articles and engaging with a community of readers.
 
+## Repo Details 
+This repository is consisting only frontend part and it is deployed on vercel.
+
 ## Table of Contents
 1. [Technologies Used](#technologies-used)
-2. [Installation](#installation)
+2. [Installation ](#installation)
 3. [Usage](#usage)
 4. [Features](#features)
 5. [Folder Structure](#folder-structure)
@@ -16,6 +19,7 @@ The Article App allows users to publish their favorite articles. It aims to prov
 10. [License](#license)
 11. [Acknowledgments](#acknowledgments)
 
+
 ## Technologies Used
 ### Frontend
 - Vite 
@@ -24,18 +28,28 @@ The Article App allows users to publish their favorite articles. It aims to prov
 - CSS 
 - Tailwind 
 - React.js 
+- Javascript 
 ### Backned 
 - MongoDB
+- Node.js
 - Express.js 
+- Javascript 
 - Npm 
 
+
 ## Installation
+### Frontend 
+1. Clone the repository.
+2. Navigate to the frontend folder and run `npm install` to install frontend dependencies.
+3. Run `npm run dev` in the frontend folder to start the frontend application.
+### Backend 
 1. Clone the repository.
 2. Navigate to the backend folder and run `npm install` to install backend dependencies.
-3. Navigate to the frontend folder and run `npm install` to install frontend dependencies.
+3. Set up the Environmet Variables 
 4. Set up MongoDB and configure the database connection.
-5. Run `npm start` in the backend folder to start the backend server.
-6. Run `npm start` in the frontend folder to start the frontend application.
+5. Run `server.js` in the backend folder to start the backend server.
+6. More (#https://github.com/anuragaffection/blog_mern_backend)
+
 
 ## Usage
 Once the application is set up, users can sign up, log in, and publish their favorite articles. They can also browse articles published by other users.
