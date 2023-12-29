@@ -45,13 +45,12 @@ It aims to provide a platform for sharing articles and engaging with a community
 1. Clone the repository.
 2. Navigate to the frontend folder and run `npm install` to install frontend dependencies.
 3. Run `npm run dev` in the frontend folder to start the frontend application.
-### Backend 
+### Backend [View Backend  - Github Repository](https://github.com/anuragaffection/blog_mern_backend)
 1. Clone the repository.
 2. Navigate to the backend folder and run `npm install` to install backend dependencies.
 3. Set up the Environmet Variables 
 4. Set up MongoDB and configure the database connection.
 5. Run `server.js` in the backend folder to start the backend server.
-6. [ View Backend  - Github Repository ](https://github.com/anuragaffection/blog_mern_backend)
 
 
 ## Usage
