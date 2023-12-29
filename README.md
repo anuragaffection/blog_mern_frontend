@@ -62,24 +62,23 @@ Once the application is set up, users can sign up, log in, and publish their fav
 
 ## Folder Structure
 ### Frontend 
-.
-├── backend
-│   ├── node_modules
-│   ├── src
-│   │   ├── controllers
-│   │   ├── models
-│   │   └── routes
-│   ├── package.json
-│   └── server.js
-└── frontend
-    ├── node_modules
-    ├── public
-    ├── src
-    │   ├── components
-    │   ├── pages
-    │   └── styles
-    ├── package.json
-    └── README.md
+<pre>
+├── example.json
+|-- server.js
+├── index.html
+├── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── src
+    ├── app.js
+    ├── models.js
+    ├── routes.js
+    └── utils
+        ├── another.js
+        ├── constants.js
+        └── index.js
+</pre>
 
 ### Backnend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
 
