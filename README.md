@@ -12,15 +12,15 @@ It aims to provide a platform for sharing articles and engaging with a community
 
 
 ## Table of Contents
-1. [Technologies Used](#technologies-used)
-2. [Installation ](#installation)
-3. [Usage](#usage)
-4. [Features](#features)
-5. [Folder Structure](#folder-structure)
-6. [Database Schema](#database-schema)
-7. [API Endpoints](#api-endpoints)
-8. [Screenshots or Demo](#screenshots-or-demo)
-9. [Contributing](#contributing)
+01. [Technologies Used](#technologies-used)
+02. [Installation ](#installation)
+03. [Usage](#usage)
+04. [Features](#features)
+05. [Folder Structure](#folder-structure)
+06. [Database Schema](#database-schema)
+07. [API Endpoints](#api-endpoints)
+08. [Live](#live)
+09. [Contributing](#contributing)
 10. [License](#license)
 11. [Acknowledgments](#acknowledgments)
 
@@ -108,7 +108,7 @@ Once the application is set up, users can sign up, log in, and publish their fav
 ## API Endpoints
 [Link to Postman Documentation]
 
-## Screenshots or Demo
+## Live 
 [Link to Screenshots/GIFs or live demo]
 
 ## Contributing
@@ -118,4 +118,8 @@ We welcome contributions! Please follow our [Contribution Guidelines](CONTRIBUTI
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
-- [List of contributors, libraries, or resources you want to acknowledge]
+- Resources Used 
+-- [Tailwind Best Practices](https://tiennguyen.hashnode.dev/10-tailwind-css-best-practices)
+-- [Backnend By  ]()
+- Thanks to Contributor 
+-- [ Anurag Affection ](https://github.com/anuragaffection)
