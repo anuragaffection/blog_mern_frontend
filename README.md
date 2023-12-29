@@ -6,7 +6,7 @@ It aims to provide a platform for sharing articles and engaging with a community
 
 ## Repo Details 
 - This repository is consisting only frontend part and it is deployed on vercel [Live Link](https://blog-mern-frontend-anurag.vercel.app/).
-- [ View Backend  - Github Repository ](https://github.com/anuragaffection/blog_mern_backend)
+- For backend part  [View Github Repo](https://github.com/anuragaffection/blog_mern_backend).
 
 ## Table of Contents
 1. [Technologies Used](#technologies-used)
@@ -31,13 +31,12 @@ It aims to provide a platform for sharing articles and engaging with a community
 - Tailwind 
 - React.js 
 - Javascript 
-### Backned 
+### Backned [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
 - MongoDB
 - Node.js
 - Express.js 
 - Javascript 
 - Npm 
-- [ View Backend  - Github Repository ](https://github.com/anuragaffection/blog_mern_backend)
 
 
 ## Installation
@@ -45,7 +44,7 @@ It aims to provide a platform for sharing articles and engaging with a community
 1. Clone the repository.
 2. Navigate to the frontend folder and run `npm install` to install frontend dependencies.
 3. Run `npm run dev` in the frontend folder to start the frontend application.
-### Backend [View Backend  - Github Repository](https://github.com/anuragaffection/blog_mern_backend)
+### Backend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
 1. Clone the repository.
 2. Navigate to the backend folder and run `npm install` to install backend dependencies.
 3. Set up the Environmet Variables 
@@ -62,8 +61,28 @@ Once the application is set up, users can sign up, log in, and publish their fav
 - Article browsing
 
 ## Folder Structure
-- `backend`: Contains backend code (Express.js server)
-- `frontend`: Contains frontend code (React.js components, views)
+### Frontend 
+.
+├── backend
+│   ├── node_modules
+│   ├── src
+│   │   ├── controllers
+│   │   ├── models
+│   │   └── routes
+│   ├── package.json
+│   └── server.js
+└── frontend
+    ├── node_modules
+    ├── public
+    ├── src
+    │   ├── components
+    │   ├── pages
+    │   └── styles
+    ├── package.json
+    └── README.md
+
+### Backnend [View Github Repo](https://github.com/anuragaffection/blog_mern_backend)
+
 
 ## Database Schema
 [Link to Database Schema Documentation]
