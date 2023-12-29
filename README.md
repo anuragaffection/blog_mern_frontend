@@ -109,7 +109,7 @@ Once the application is set up, users can sign up, log in, and publish their fav
 [Link to Postman Documentation]
 
 ## Live 
-[Link to Screenshots/GIFs or live demo]
+[ Live demo](https://blog-mern-frontend-anurag.vercel.app/)
 
 ## Contributing
 We welcome contributions! Please follow our [Contribution Guidelines](CONTRIBUTING.md) to contribute to this project.
@@ -118,8 +118,9 @@ We welcome contributions! Please follow our [Contribution Guidelines](CONTRIBUTI
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
-- Resources Used 
--- [Tailwind Best Practices](https://tiennguyen.hashnode.dev/10-tailwind-css-best-practices)
--- [Backnend By  ]()
-- Thanks to Contributor 
--- [ Anurag Affection ](https://github.com/anuragaffection)
+### Resources Used 
+- [Tailwind Best Practices](https://tiennguyen.hashnode.dev/10-tailwind-css-best-practices)
+- [Frontend Inspiration ](https://github.com/sumanmalakar/MERN_2023_Frontend_YouTube)
+- [Backned Help](https://github.com/sumanmalakar/MERN_2023_API_YouTube)
+### Thanks to Contributor 
+- [ Anurag Affection ](https://github.com/anuragaffection)
