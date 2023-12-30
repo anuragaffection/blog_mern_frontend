@@ -29,7 +29,7 @@ const Home = () => {
       top: 0,
       behavior: 'smooth',
     });
-    
+
   };
 
   const container = `bg-gray-900 text-gray-200 p-4`;
