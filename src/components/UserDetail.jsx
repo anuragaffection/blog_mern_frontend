@@ -5,7 +5,7 @@ const UserDetail = ({id}) => {
     const [oneUser, setOneUser] = useState({}) // storing object 
     useEffect(() => {
         const fetchUser = async () => {
-            const api = await axios.get(`https://blog-mern-backend-luce.onrender.com/api/users/${id}`, {
+            const api = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -18,9 +18,7 @@ const UserDetail = ({id}) => {
 
 
     return (
-        <>
-            <h3> {oneUser.name}</h3>
-        </>
+        <span className="font-medium text-zinc-300">{oneUser.name}</span>
     )
 }
 

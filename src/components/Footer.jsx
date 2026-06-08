@@ -13,7 +13,7 @@ import {
   FaInstagram,
   FaFacebook
 } from 'react-icons/fa'
-
+import { FiX } from 'react-icons/fi';
 
 function Footer() {
   const navigate = useNavigate();
@@ -24,7 +24,6 @@ function Footer() {
     showPolicy: false,
     showAboutDeveloper: false,
   });
-
 
   const scrollToTop = () => {
     navigate('/');
@@ -40,69 +39,97 @@ function Footer() {
     });
   };
 
-
-
   const toggleSection = (section) => {
     setShowSection((prevState) => ({
       ...prevState,
-      showAboutApp: section === 'aboutApp'  ? !prevState.showAboutApp : false,
+      showAboutApp: section === 'aboutApp' ? !prevState.showAboutApp : false,
       showContact: section === 'contact' ? !prevState.showContact : false,
       showPolicy: section === 'policy' ? !prevState.showPolicy : false,
       showAboutDeveloper: section === 'aboutDeveloper' ? !prevState.showAboutDeveloper : false,
     }));
-
   };
 
-  const footerContainer = `bg-black text-lime-500`;
-  const footerWrapper = `flex flex-col justify-center items-center gap-5 p-4`;
-  const name = `mt-5 md:mt-7 text-light text-yellow-400 text-center text-xl `;
-  const nav = `flex justify-center items-center`;
-  const navLink = `ml-3 md:mx-5 hover:text-lime-400 text:sm md:text-xl text-bold`;
-  const socialMediaWrapper = `flex justify-center items-center mt-3`;
-  const socialMediaIcon = `ml-4 md:mx-5 hover:text-lime-400 text-2xl`;
-  const copyright = `mb-5 text-light text-yellow-400 flex flex-col md:flex-row md:gap-3 justify-center items-center`;
+  const closeAllSections = () => {
+    setShowSection({
+      showAboutApp: false,
+      showContact: false,
+      showPolicy: false,
+      showAboutDeveloper: false,
+    });
+  };
+
+  const isAnySectionOpen = Object.values(showSection).some(Boolean);
+
+  const footerNavLinkClass = (isOpen) => `text-sm font-medium transition-colors duration-200 cursor-pointer ${
+    isOpen ? 'text-violet-400' : 'text-zinc-400 hover:text-zinc-100'
+  }`;
 
   return (
     <>
-      <footer className={footerContainer}>
-        <div className={footerWrapper}>
-          <div className={name}> {Social.name}</div>
-          <div className={nav}>
-            <div className={navLink} onClick={scrollToTop}>Home</div>
-            <div className={navLink} onClick={() => toggleSection('aboutApp')}>About{' '} </div>
-            <div className={navLink} onClick={() => toggleSection('contact')}>Contact{' '} </div>
-            <div className={navLink} onClick={() => toggleSection('policy')}>Privacy{' '}</div>
-            <div className={navLink} onClick={() => toggleSection('aboutDeveloper')}>Developer</div>
+      {/* Toggled Sections (Sandwiched elegant accordion) */}
+      {isAnySectionOpen && (
+        <div className="bg-zinc-950 px-6 py-6 border-t border-zinc-900">
+          <div className="mx-auto max-w-4xl relative bg-zinc-900/20 border border-zinc-800/60 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+            {/* Close Button */}
+            <button 
+              onClick={closeAllSections}
+              className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-200 p-1.5 rounded-lg border border-zinc-800/80 bg-zinc-900/50 hover:bg-zinc-800 transition-colors"
+              title="Close section"
+            >
+              <FiX className="text-base" />
+            </button>
+
+            <div>
+              {showSection.showAboutApp && <AboutApp />}
+              {showSection.showContact && <Contact />}
+              {showSection.showPolicy && <PrivacyPolicy />}
+              {showSection.showAboutDeveloper && <AboutDeveloper />}
+            </div>
           </div>
         </div>
-      </footer >
+      )}
 
-      <div>
-        {showSection.showAboutApp && <AboutApp />}
-        {showSection.showContact && <Contact />}
-        {showSection.showPolicy && <PrivacyPolicy />}
-        {showSection.showAboutDeveloper && <AboutDeveloper />}
-      </div>
-
-      <div className={footerContainer}>
-        <div className={footerWrapper}>
-          <div className={socialMediaWrapper}>
-            <a className={socialMediaIcon} href={Social.github} target='_blank'><FaGithub /></a>
-            <a className={socialMediaIcon} href={Social.linkedin} target='_blank'><FaLinkedin /></a>
-            <a className={socialMediaIcon} href={Social.youtube} target='_blank'><FaYoutube /></a>
-            <a className={socialMediaIcon} href={Social.twitter} target='_blank'><FaTwitter /></a>
-            <a className={socialMediaIcon} href={Social.facebook} target='_blank'><FaFacebook /></a>
-            <a className={socialMediaIcon} href={Social.instagram} target='_blank'><FaInstagram /></a>
+      {/* Main Footer Container */}
+      <footer className="bg-zinc-950 border-t border-zinc-900 text-zinc-500 py-10 px-6">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Logo & Headline */}
+          <div className="text-center md:text-left">
+            <span className="font-bold text-zinc-300 text-base block">{Social.title}</span>
+            <span className="text-xs text-zinc-500 mt-1 block">{Social.name}</span>
           </div>
-          <div className={copyright}>
-            <span>&copy; 2023 </span>
-            <span>All rights reserved.</span>
-            <span>A Family of Love & Affection. </span>
+
+          {/* Navigation Links */}
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <span className={footerNavLinkClass(false)} onClick={scrollToTop}>Home</span>
+            <span className={footerNavLinkClass(showSection.showAboutApp)} onClick={() => toggleSection('aboutApp')}>About</span>
+            <span className={footerNavLinkClass(showSection.showContact)} onClick={() => toggleSection('contact')}>Contact</span>
+            <span className={footerNavLinkClass(showSection.showPolicy)} onClick={() => toggleSection('policy')}>Privacy</span>
+            <span className={footerNavLinkClass(showSection.showAboutDeveloper)} onClick={() => toggleSection('aboutDeveloper')}>Developer</span>
           </div>
         </div>
-      </div>
+
+        {/* Divider */}
+        <div className="mx-auto max-w-7xl my-6 border-t border-zinc-900" />
+
+        {/* Bottom Social & Copyright */}
+        <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Socials */}
+          <div className="flex items-center gap-4">
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.github} target='_blank' rel="noreferrer"><FaGithub /></a>
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.linkedin} target='_blank' rel="noreferrer"><FaLinkedin /></a>
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.youtube} target='_blank' rel="noreferrer"><FaYoutube /></a>
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.twitter} target='_blank' rel="noreferrer"><FaTwitter /></a>
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.facebook} target='_blank' rel="noreferrer"><FaFacebook /></a>
+            <a className="text-zinc-500 hover:text-zinc-100 text-lg transition-colors" href={Social.instagram} target='_blank' rel="noreferrer"><FaInstagram /></a>
+          </div>
+
+          {/* Copyright text */}
+          <p className="text-xs text-zinc-600 text-center sm:text-right">
+            &copy; {new Date().getFullYear()} {Social.title}. All rights reserved. A Family of Love & Affection.
+          </p>
+        </div>
+      </footer>
     </>
-
   )
 }
 

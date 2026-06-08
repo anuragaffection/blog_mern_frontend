@@ -6,17 +6,16 @@ import context from '../context/MyContext';
 import articleApp from '../assets/articleApp.jpg'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
+import { FiEye, FiEdit2, FiTrash2, FiCalendar } from 'react-icons/fi';
 
 function MyBlogs() {
-
-    const [blog, setBlog] = useState([]); //empty array
+    const [blog, setBlog] = useState([]);
     const auth = useContext(context);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBlog = async () => {
-            const api = await axios.get(`https://blog-mern-backend-luce.onrender.com/api/blogs/myblogs`, {
+            const api = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/myblogs`, {
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -27,130 +26,138 @@ function MyBlogs() {
         fetchBlog();
     }, []);
 
-
     const deleteBlog = async (id) => {
-        const api = await axios.delete(`https://blog-mern-backend-luce.onrender.com/api/blogs/${id}`, {
-            headers: {
-                "Content-Type": "application/json"
-            },
-            withCredentials: true
-        });
+        try {
+            const api = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/${id}`, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true
+            });
 
-        toast.success(api.data.message, {
-            position: "top-center",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+            toast.success(api.data.message, {
+                position: "top-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+            // Update local state to immediately reflect deletion
+            setBlog(prevBlogs => prevBlogs.filter(item => item._id !== id));
+
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Failed to delete article", {
+                position: "top-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
     }
-
 
     const editBlog = async (id) => {
         auth.setId(id);
         navigate('/addblog')
     }
 
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
-
     };
-
-
-    const container = `bg-gray-900 text-gray-200 p-4`;
-    const wrapper = `flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-7 `;
-    const dataWrapper = `flex flex-col gap-4 bg-gray-950 p-9 rounded-lg md:w-5/12`
-    const imageWrapper = `border border-gray-700 `;
-    const imageStyle = `max-w-full h-48 `;
-    const titleStyle = `text-yellow-400 text-2xl font-semibold`;
-    const dateProfileWrapper = `flex flex-row gap-3`
-    const buttonWrapper = 'flex flex-row gap-6 justify-center text-gray-900 font-semibold'
-    const editButton = `bg-rose-700 hover:bg-rose-500 h-12 px-5 rounded-lg`;
-    const viewButton = 'bg-lime-500 hover:bg-lime-400 h-12 px-5 rounded-lg';
-    const deleteButton = 'bg-red-700 hover:bg-red-500 h-12 px-5 rounded-lg'
 
     return (
         <>
-            <div className={container}>
-                <div className={wrapper}>
-                    {
-                        blog && blog.map((data) => {
-                            return (
-                                <div className={dataWrapper} key={data._id}>
-                                    <ToastContainer
-                                        position="top-right"
-                                        autoClose={1500}
-                                        hideProgressBar={false}
-                                        newestOnTop={false}
-                                        closeOnClick
-                                        rtl={false}
-                                        pauseOnFocusLoss
-                                        draggable
-                                        pauseOnHover
-                                        theme="dark"
-                                    />
-
-                                    <div className={imageWrapper}>
+            {blog.length === 0 ? (
+                <div className="flex h-48 flex-col items-center justify-center rounded-2xl border border-zinc-800/40 bg-zinc-900/10 p-8 text-center">
+                    <span className="text-zinc-500 mb-2">You haven't written any articles yet</span>
+                    <Link 
+                        to="/addblog" 
+                        className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors"
+                    >
+                        Write your first article
+                    </Link>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {blog.map((data) => {
+                        return (
+                            <div 
+                                key={data._id} 
+                                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-zinc-800/60 bg-zinc-900/10 hover:bg-zinc-900/20 p-5 transition-all duration-200 hover:border-zinc-700/50"
+                            >
+                                <div>
+                                    {/* Image cover */}
+                                    <div className="relative h-40 w-full overflow-hidden rounded-xl bg-zinc-950 border border-zinc-850/60 mb-4">
                                         <img
-                                            src={(data.imgUrl) ? data.imgUrl : articleApp}
-                                            className={imageStyle}
-                                            alt="Image"
+                                            src={data.imgUrl ? data.imgUrl : articleApp}
+                                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-103"
+                                            alt={data.title}
                                         />
                                     </div>
 
+                                    {/* Title */}
+                                    <h3 className="mb-2 text-base font-bold text-zinc-100 line-clamp-1 group-hover:text-violet-400 transition-colors duration-200">
+                                        {data.title}
+                                    </h3>
 
-                                    <div className={titleStyle}>{data.title}</div>
-
-                                    <div className={dateProfileWrapper}>
-                                        <div> {new Date(data.createdAt).toLocaleDateString()}</div>
-                                        <div> <UserDetail id={data.user} /></div>
+                                    {/* Date */}
+                                    <div className="mb-4 flex items-center gap-1.5 text-xs text-zinc-500">
+                                        <FiCalendar className="text-zinc-600" />
+                                        {new Date(data.createdAt).toLocaleDateString(undefined, {
+                                            month: 'short',
+                                            day: 'numeric',
+                                            year: 'numeric'
+                                        })}
                                     </div>
 
-                                    <div>
-                                        {
-                                            data.description.length > 250
-                                                ? `${data.description.substring(0, 251)}...`
-                                                : data.description
-                                        }
-                                    </div>
-
-                                    <div className={buttonWrapper}>
-                                        <button className={viewButton}>
-                                            <Link
-                                                to={"/viewblog"}
-                                                onClick={() => {
-                                                    auth.setSingleBlog(data);
-                                                    scrollToTop();
-                                                }}
-                                            >
-                                                View
-                                            </Link>
-                                        </button>
-                                        <button
-                                            onClick={() => editBlog(data._id)}
-                                            className={editButton}>
-                                            Edit
-                                        </button>
-                                        <button
-                                            onClick={() => deleteBlog(data._id)}
-                                            className={deleteButton}>
-                                            Delete
-                                        </button>
-                                    </div>
-
+                                    {/* Excerpt */}
+                                    <p className="mb-5 text-sm leading-relaxed text-zinc-400 line-clamp-2">
+                                        {data.description}
+                                    </p>
                                 </div>
-                            )
-                        })
-                    }
-                </div >
-            </div>
+
+                                {/* Actions */}
+                                <div className="mt-auto flex items-center gap-2 border-t border-zinc-800/40 pt-4">
+                                    <Link
+                                        to={"/viewblog"}
+                                        onClick={() => {
+                                            auth.setSingleBlog(data);
+                                            scrollToTop();
+                                        }}
+                                        className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-zinc-900 border border-zinc-800/80 hover:bg-zinc-850 hover:text-white text-zinc-300 font-semibold text-xs py-2.5 transition-all duration-200"
+                                    >
+                                        <FiEye /> View
+                                    </Link>
+                                    
+                                    <button
+                                        onClick={() => editBlog(data._id)}
+                                        className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-violet-600/10 hover:bg-violet-600 text-violet-400 hover:text-white font-semibold text-xs py-2.5 transition-all duration-200"
+                                    >
+                                        <FiEdit2 /> Edit
+                                    </button>
+                                    
+                                    <button
+                                        onClick={() => deleteBlog(data._id)}
+                                        className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-red-600/10 hover:bg-red-600 text-red-400 hover:text-white font-semibold text-xs py-2.5 transition-all duration-200"
+                                    >
+                                        <FiTrash2 /> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            )}
         </>
     )
 }

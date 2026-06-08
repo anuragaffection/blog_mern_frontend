@@ -1,13 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios'
 import context from '../context/MyContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-
 function Register() {
-
   const auth = useContext(context);
   const navigate = useNavigate();
 
@@ -19,7 +17,7 @@ function Register() {
     e.preventDefault()
 
     try {
-      const api = await axios.post(`https://blog-mern-backend-luce.onrender.com/api/users/register`,
+      const api = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
         {
           name,
           email,
@@ -50,7 +48,6 @@ function Register() {
         navigate('/login')
       }, 1500);
 
-
     }
     catch (error) {
       toast.error(error.response.data.message, {
@@ -66,80 +63,94 @@ function Register() {
 
       auth.setIsAuthenticated(false);
     }
-
   }
-
-  const container = `bg-gray-900 text-gray-200 p-4`;
-  const wrapper = `flex flex-col gap-7 md:justify-center md:items-center my-3`;
-  const title = `text-center text-yellow-400 text-2xl font-semibold`;
-  const registerForm = `flex flex-col gap-6 bg-gray-950 p-9 rounded-lg md:w-3/4`;
-  const labelInputWrapper = 'flex flex-col gap-2'
-  const labelStyle = 'font-semibold ml-2'
-  const inputStyle = `bg-gray-700 h-12 p-3 rounded-lg`;
-  const submitButton = `text-gray-900 h-12 rounded-lg bg-lime-500 hover:bg-lime-400`
-
 
   return (
     <>
+      <div className="min-h-[85vh] bg-zinc-950 flex items-center justify-center py-12 px-6">
+        <div className="w-full max-w-md bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-8 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+          <div className="text-center mb-8">
+            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-2">
+              Create an account
+            </h1>
+            <p className="text-sm text-zinc-400">
+              Join us to publish, manage, and share your ideas.
+            </p>
+          </div>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-
-
-      <div className={container}>
-        <div className={wrapper}>
-          <h1 className={title}>Register Here   </h1>
-          <form onSubmit={handleSubmit} className={registerForm}>
-            <div className={labelInputWrapper}>
-              <label htmlFor="exampleInputName" className={labelStyle}>Name </label>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="flex flex-col gap-2">
+              <label 
+                htmlFor="exampleInputName" 
+                className="text-xs font-semibold uppercase tracking-wider text-zinc-400 ml-1"
+              >
+                Full Name
+              </label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                className={inputStyle}
+                className="bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200 h-12"
                 id="exampleInputName"
-                placeholder="Enter Name"
+                placeholder="John Doe"
+                required
               />
             </div>
 
-            <div className={labelInputWrapper}>
-              <label htmlFor="exampleInputEmail" className={labelStyle}>Email address</label>
+            <div className="flex flex-col gap-2">
+              <label 
+                htmlFor="exampleInputEmail" 
+                className="text-xs font-semibold uppercase tracking-wider text-zinc-400 ml-1"
+              >
+                Email Address
+              </label>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                className={inputStyle}
+                className="bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200 h-12"
                 id="exampleInputEmail"
-                placeholder="Enter email"
+                placeholder="you@example.com"
+                required
               />
             </div>
-            <div className={labelInputWrapper}>
-              <label htmlFor="exampleInputPassword" className={labelStyle}>Password</label>
+
+            <div className="flex flex-col gap-2">
+              <label 
+                htmlFor="exampleInputPassword" 
+                className="text-xs font-semibold uppercase tracking-wider text-zinc-400 ml-1"
+              >
+                Password
+              </label>
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                className={inputStyle}
+                className="bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200 h-12"
                 id="exampleInputPassword"
-                placeholder="Password"
+                placeholder="••••••••"
+                required
               />
             </div>
-            <button type="submit" className={submitButton}>Submit</button>
+
+            <button 
+              type="submit" 
+              className="w-full rounded-xl bg-violet-600 hover:bg-violet-500 font-semibold text-white transition-all duration-200 hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] h-12 flex items-center justify-center mt-2"
+            >
+              Sign Up
+            </button>
           </form>
+
+          <div className="text-center mt-6">
+            <p className="text-sm text-zinc-400">
+              Already have an account?{' '}
+              <Link to="/login" className="font-semibold text-violet-400 hover:text-violet-300 transition-colors">
+                Sign in
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
-
-
     </>
   )
 }
