@@ -28,7 +28,6 @@ problems {
 
   fully clear 
   -- aboutApp
-  -- aboutdeveloper
   -- footer
   -- 
 

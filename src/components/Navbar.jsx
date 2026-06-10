@@ -5,6 +5,7 @@ import context from '../context/MyContext'
 import { Social } from '../constant/social'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { FiHome, FiLogIn, FiUserPlus, FiPlusCircle, FiUser } from 'react-icons/fi';
 
 function Navbar() {
     const auth = useContext(context);
@@ -19,7 +20,7 @@ function Navbar() {
 
     const navLinkClass = (path) => {
         const isActive = location.pathname === path;
-        return `relative px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
+        return `flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
             isActive ? 'text-violet-400' : 'text-zinc-400 hover:text-zinc-100'
         }`;
     };
@@ -42,7 +43,7 @@ function Navbar() {
 
             <header className="sticky top-0 z-50 w-full border-b border-zinc-800/60 bg-zinc-950/80 backdrop-blur-md">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-                    <Link to={'/'} className="flex items-center gap-3 group transition-opacity duration-200 hover:opacity-90">
+                    <Link to={'/'} onClick={scrollToTop} className="flex items-center gap-3 group transition-opacity duration-200 hover:opacity-90">
                         <div className="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-violet-500/20">
                             <img
                                 className="h-full w-full object-cover"
@@ -55,22 +56,25 @@ function Navbar() {
                         </span>
                     </Link>
 
-                    <nav className="flex items-center gap-1 md:gap-4">
+                    <nav className="flex items-center gap-1 sm:gap-3">
                         <Link to={'/'} onClick={scrollToTop} className={navLinkClass('/')}>
-                            Home
+                            <FiHome className="text-base" />
+                            <span className="hidden sm:inline">Home</span>
                         </Link>
                         
                         {!auth.isAuthenticated && (
                             <>
                                 <Link to={'/login'} onClick={scrollToTop} className={navLinkClass('/login')}>
-                                    Login
+                                    <FiLogIn className="text-base" />
+                                    <span className="hidden sm:inline">Login</span>
                                 </Link>
                                 <Link 
                                     to={'/register'} 
                                     onClick={scrollToTop} 
-                                    className="ml-2 rounded-full bg-violet-600 px-4 py-1.5 text-sm font-medium text-white transition-all duration-200 hover:bg-violet-500 hover:shadow-[0_0_15px_rgba(124,58,237,0.3)]"
+                                    className="ml-1 flex items-center gap-1.5 rounded-full bg-violet-600 px-4 py-1.5 text-sm font-medium text-white transition-all duration-200 hover:bg-violet-500 hover:shadow-[0_0_15px_rgba(124,58,237,0.3)]"
                                 >
-                                    Register
+                                    <FiUserPlus className="text-base" />
+                                    <span>Register</span>
                                 </Link>
                             </>
                         )}
@@ -78,10 +82,12 @@ function Navbar() {
                         {auth.isAuthenticated && (
                             <>
                                 <Link to={'/addblog'} onClick={scrollToTop} className={navLinkClass('/addblog')}>
-                                    Add Blog
+                                    <FiPlusCircle className="text-base" />
+                                    <span className="hidden sm:inline">Add Blog</span>
                                 </Link>
                                 <Link to={'/profile'} onClick={scrollToTop} className={navLinkClass('/profile')}>
-                                    Profile
+                                    <FiUser className="text-base" />
+                                    <span className="hidden sm:inline">Profile</span>
                                 </Link>
                             </>
                         )}
