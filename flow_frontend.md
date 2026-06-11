@@ -422,11 +422,19 @@ Before creating the service, you must have these created:
 
 - **Strategy:** `Replica`
 - **Desired tasks:** `1`
+- deployment strategy : rolling update
+- min running tasks in percent : 100
+- max running tasks in percent : 200
+
 
 ### Networking
 
 - **VPC:** `default`
 - **Subnets:** `default`
+- public ip - no need (currently turn on)
+- each task get the new apis 
+- 
+- 
 
 ### Security Group
 
@@ -444,6 +452,42 @@ Before creating the service, you must have these created:
 
 - Use an existing load balancer (created above).
 - Use an existing listener.
+
+### Service Auto Scaling 
+- desired number of task - 1
+- minimum number of task - 0
+- maximum number of task - 1
+- set the scaling polices
+
+### scaling polices
+- For 90% of applications, including your MERN blog, SaaS, Shopify app backend, etc., use Target Tracking.
+- After adding a task, ECS waits before adding another. : scale out cooldown 
+- After removing a task, ECS waits before removing another.
+
+Min Tasks: 1 
+Desired Tasks: 1
+Max Tasks: 5
+
+Policy Type:
+Target Tracking
+
+Metric:
+ECSServiceAverageCPUUtilization
+
+Target Value:
+60
+
+Scale-Out Cooldown:
+60 seconds
+
+Scale-In Cooldown:
+300 seconds
+
+
+#### Note
+- desired = current number of task running 
+- minimum = aws will never go belwo this
+- maximum = aws will never go above this
 
 ## ✅ AWS Configuration Complete
 
