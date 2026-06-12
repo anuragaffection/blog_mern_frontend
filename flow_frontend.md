@@ -377,6 +377,7 @@ After clicking next (or expanding advanced), use:
 | IP Address Type   | IPv4                        |
 | Availability      | all subnets                 |
 | Security group    | `blog-frontend-sg-alb`      |
+| HTTP              | `80`                        |
 | Target group      | `blog-frontend-tg` (created above) |
 
 ### Security Group (creation)
