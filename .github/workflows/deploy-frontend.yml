@@ -1,9 +1,9 @@
 name: Deploy Frontend to Production ECS
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 
   workflow_dispatch:
     inputs:
